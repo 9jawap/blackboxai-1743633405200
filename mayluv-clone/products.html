@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,"> <!-- Prevents favicon.ico request -->
+    <title>Products - MayLuv</title>
+    <!-- Production-optimized Tailwind CSS -->
+    <link href="https://unpkg.com/tailwindcss@^3.0.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      :root {
+        --tw-pink-500: #ec4899;
+        --tw-pink-600: #db2777;
+      }
+      .bg-pink-500 { background-color: var(--tw-pink-500); }
+      .bg-pink-600 { background-color: var(--tw-pink-600); }
+      .text-pink-500 { color: var(--tw-pink-500); }
+      .text-pink-600 { color: var(--tw-pink-600); }
+      .border-pink-500 { border-color: var(--tw-pink-500); }
+      .hover\:bg-pink-600:hover { background-color: var(--tw-pink-600); }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header (same as index.html) -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold gradient-text">MayLuv</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-800 hover:text-pink-500 font-medium">Home</a>
+                <a href="products.html" class="text-pink-500 font-medium">Products</a>
+                <a href="about.html" class="text-gray-800 hover:text-pink-500 font-medium">About</a>
+                <a href="contact.html" class="text-gray-800 hover:text-pink-500 font-medium">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-gray-800 hover:text-pink-500"><i class="fas fa-shopping-cart"></i></a>
+                <button class="md:hidden text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Hero -->
+    <section class="relative py-20 bg-gray-900 overflow-hidden">
+        <img src="https://images.pexels.com/photos/4202923/pexels-photo-4202923.jpeg" 
+             alt="Beauty Products" 
+             class="absolute inset-0 w-full h-full object-cover opacity-70">
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Products</h1>
+            <p class="text-xl text-white mb-8 max-w-2xl mx-auto">Premium beauty essentials for your self-care routine</p>
+        </div>
+    </section>
+
+    <!-- Product Filters -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="text-gray-600 mr-2">Filter by:</span>
+                    <div class="inline-flex space-x-2">
+                        <button class="filter-btn active bg-pink-500 text-white px-4 py-2 rounded-full" data-category="all">All</button>
+                        <button class="filter-btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full" data-category="skincare">Skincare</button>
+                        <button class="filter-btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full" data-category="makeup">Makeup</button>
+                        <button class="filter-btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full" data-category="haircare">Haircare</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="relative">
+                        <select class="appearance-none bg-gray-100 border border-gray-300 rounded-full pl-4 pr-8 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <option>Sort by: Featured</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                            <option>Newest Arrivals</option>
+                            <option>Best Sellers</option>
+                        </select>
+                        <div class="absolute right-3 top-2.5 pointer-events-none">
+                            <i class="fas fa-chevron-down text-gray-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300" data-category="skincare">
+                    <div class="overflow-hidden">
+                        <img src="https://images.pexels.com/photos/4041391/pexels-photo-4041391.jpeg" 
+                             alt="Glow Serum" 
+                             class="w-full h-64 object-cover product-image transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Glow Serum</h3>
+                            <span class="bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Skincare</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Illuminate your complexion with our vitamin-rich formula</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold">$49.99</span>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300" data-category="skincare">
+                    <div class="overflow-hidden">
+                        <img src="https://images.pexels.com/photos/4202924/pexels-photo-4202924.jpeg" 
+                             alt="Hydrating Cream" 
+                             class="w-full h-64 object-cover product-image transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Hydrating Cream</h3>
+                            <span class="bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Skincare</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Deep moisture for all skin types</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold">$39.99</span>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300" data-category="skincare">
+                    <div class="overflow-hidden">
+                        <img src="https://images.pexels.com/photos/4202922/pexels-photo-4202922.jpeg" 
+                             alt="Cleansing Oil" 
+                             class="w-full h-64 object-cover product-image transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Cleansing Oil</h3>
+                            <span class="bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Skincare</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Gentle yet effective makeup remover</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold">$29.99</span>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300" data-category="makeup">
+                    <div class="overflow-hidden">
+                        <img src="https://images.pexels.com/photos/3373739/pexels-photo-3373739.jpeg" 
+                             alt="Matte Lipstick" 
+                             class="w-full h-64 object-cover product-image transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Matte Lipstick</h3>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Makeup</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Long-lasting color in 12 vibrant shades</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold">$24.99</span>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300" data-category="makeup">
+                    <div class="overflow-hidden">
+                        <img src="https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg" 
+                             alt="Mascara" 
+                             class="w-full h-64 object-cover product-image transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Volume Mascara</h3>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Makeup</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Lengthens and volumizes lashes</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold">$19.99</span>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300" data-category="haircare">
+                    <div class="overflow-hidden">
+                        <img src="https://images.pexels.com/photos/3997374/pexels-photo-3997374.jpeg" 
+                             alt="Shampoo" 
+                             class="w-full h-64 object-cover product-image transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Hydrating Shampoo</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Haircare</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Nourishes and repairs dry, damaged hair</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold">$22.99</span>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300" data-category="haircare">
+                    <div class="overflow-hidden">
+                        <img src="https://images.pexels.com/photos/3997373/pexels-photo-3997373.jpeg" 
+                             alt="Conditioner" 
+                             class="w-full h-64 object-cover product-image transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Repair Conditioner</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Haircare</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Restores moisture and shine to dull hair</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold">$22.99</span>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300" data-category="makeup">
+                    <div class="overflow-hidden">
+                        <img src="https://images.pexels.com/photos/3373742/pexels-photo-3373742.jpeg" 
+                             alt="Foundation" 
+                             class="w-full h-64 object-cover product-image transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Skin Tint</h3>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Makeup</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Lightweight coverage with skincare benefits</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold">$34.99</span>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center">
+                <nav class="inline-flex rounded-md shadow">
+                    <a href="#" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-pink-600 font-medium">1</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">2</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">3</a>
+                    <a href="#" class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold gradient-text mb-4">MayLuv</h3>
+                    <p class="text-gray-400">Premium beauty essentials crafted with care and passion.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">All Products</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Skincare</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Makeup</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Haircare</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Sustainability</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Connect</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    <p class="text-gray-400">support@mayluv.com</p>
+                    <p class="text-gray-400">+1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 MayLuv. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" class="h-8">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="Mastercard" class="h-8">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="Amex" class="h-8">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196565.png" alt="PayPal" class="h-8">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal (hidden by default) -->
+    <div class="fixed inset-0 z-50 hidden overflow-y-auto" id="productModal">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-2xl leading-6 font-bold text-gray-900 mb-2" id="modalTitle">Product Name</h3>
+                                <button type="button" class="close-modal text-gray-400 hover:text-gray-500">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <img id="modalImage" src="" alt="" class="w-full rounded-lg">
+                                </div>
+                                <div>
+                                    <p class="text-gray-600 mb-4" id="modalDescription">Product description</p>
+                                    <div class="flex items-center mb-4">
+                                        <div class="flex text-yellow-400 mr-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span class="text-gray-500 text-sm">(42 reviews)</span>
+                                    </div>
+                                    <p class="text-2xl font-bold mb-6" id="modalPrice">$0.00</p>
+                                    <div class="flex items-center mb-6">
+                                        <span class="text-gray-700 mr-4">Quantity:</span>
+                                        <div class="flex items-center border border-gray-300 rounded-full">
+                                            <button class="quantity-minus px-3 py-1 text-gray-600 hover:text-gray-700">-</button>
+                                            <span class="quantity-value px-3">1</span>
+                                            <button class="quantity-plus px-3 py-1 text-gray-600 hover:text-gray-700">+</button>
+                                        </div>
+                                    </div>
+                                    <button class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-4 rounded-full transition duration-300">
+                                        Add to Cart - <span id="modalTotalPrice">$0.00</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter buttons
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active', 'bg-pink-500', 'text-white'));
+                    filterButtons.forEach(btn => btn.classList.add('bg-gray-200', 'hover:bg-gray-300'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active', 'bg-pink-500', 'text-white');
+                    this.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+                    
+                    const category = this.dataset.category;
+                    
+                    // Filter products
+                    productCards.forEach(card => {
+                        if (category === 'all' || card.dataset.category === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Modal functionality
+            const modal = document.getElementById('productModal');
+            const closeModalBtn = document.querySelector('.close-modal');
+            
+            // Close modal when clicking X or outside
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+            
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+            
+            // Quantity controls
+            const quantityMinus = document.querySelector('.quantity-minus');
+            const quantityPlus = document.querySelector('.quantity-plus');
+            const quantityValue = document.querySelector('.quantity-value');
+            const modalTotalPrice = document.getElementById('modalTotalPrice');
+            
+            let quantity = 1;
+            let price = 0;
+            
+            quantityMinus.addEventListener('click', () => {
+                if (quantity > 1) {
+                    quantity--;
+                    quantityValue.textContent = quantity;
+                    updateTotalPrice();
+                }
+            });
+            
+            quantityPlus.addEventListener('click', () => {
+                quantity++;
+                quantityValue.textContent = quantity;
+                updateTotalPrice();
+            });
+            
+            function updateTotalPrice() {
+                const total = (price * quantity).toFixed(2);
+                modalTotalPrice.textContent = `$${total}`;
+            }
+            
+            // Set up product card click handlers
+            productCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Don't open modal if clicking on add to cart button
+                    if (e.target.closest('.add-to-cart')) {
+                        e.stopPropagation();
+                        return;
+                    }
+                    
+                    const title = this.querySelector('h3').textContent;
+                    const image = this.querySelector('img').src;
+                    const description = this.querySelector('p').textContent;
+                    const priceText = this.querySelector('span.text-xl').textContent;
+                    price = parseFloat(priceText.replace('$', ''));
+                    
+                    // Set modal content
+                    document.getElementById('modalTitle').textContent = title;
+                    document.getElementById('modalImage').src = image;
+                    document.getElementById('modalImage').alt = title;
+                    document.getElementById('modalDescription').textContent = description;
+                    document.getElementById('modalPrice').textContent = priceText;
+                    
+                    // Reset quantity
+                    quantity = 1;
+                    quantityValue.textContent = quantity;
+                    updateTotalPrice();
+                    
+                    // Show modal
+                    modal.classList.remove('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
