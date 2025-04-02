@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,"> <!-- Prevents favicon.ico request -->
+    <title>MayLuv - Premium Beauty Essentials</title>
+    <!-- Production-optimized Tailwind CSS -->
+    <link href="https://unpkg.com/tailwindcss@^3.0.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      :root {
+        --tw-pink-500: #ec4899;
+        --tw-pink-600: #db2777;
+      }
+      .bg-pink-500 { background-color: var(--tw-pink-500); }
+      .bg-pink-600 { background-color: var(--tw-pink-600); }
+      .text-pink-500 { color: var(--tw-pink-500); }
+      .text-pink-600 { color: var(--tw-pink-600); }
+      .border-pink-500 { border-color: var(--tw-pink-500); }
+      .hover\:bg-pink-600:hover { background-color: var(--tw-pink-600); }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold gradient-text">MayLuv</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-800 hover:text-pink-500 font-medium">Home</a>
+                <a href="products.html" class="text-gray-800 hover:text-pink-500 font-medium">Products</a>
+                <a href="about.html" class="text-gray-800 hover:text-pink-500 font-medium">About</a>
+                <a href="contact.html" class="text-gray-800 hover:text-pink-500 font-medium">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-gray-800 hover:text-pink-500"><i class="fas fa-shopping-cart"></i></a>
+                <button class="md:hidden text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center bg-gray-900 overflow-hidden">
+        <img src="https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg" 
+             alt="Luxury Beauty Products" 
+             class="absolute inset-0 w-full h-full object-cover opacity-70">
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">Elevate Your Everyday</h1>
+            <p class="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto">Discover premium beauty essentials crafted for you</p>
+            <a href="products.html" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                Shop Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Best Sellers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.pexels.com/photos/4041391/pexels-photo-4041391.jpeg" 
+                         alt="Glow Serum" 
+                         class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Glow Serum</h3>
+                        <p class="text-gray-600 mb-4">Illuminate your complexion with our vitamin-rich formula</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold">$49.99</span>
+                            <button class="bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.pexels.com/photos/4202924/pexels-photo-4202924.jpeg" 
+                         alt="Hydrating Cream" 
+                         class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Hydrating Cream</h3>
+                        <p class="text-gray-600 mb-4">Deep moisture for all skin types</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold">$39.99</span>
+                            <button class="bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+                    <img src="https://images.pexels.com/photos/4202922/pexels-photo-4202922.jpeg" 
+                         alt="Cleansing Oil" 
+                         class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cleansing Oil</h3>
+                        <p class="text-gray-600 mb-4">Gentle yet effective makeup remover</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold">$29.99</span>
+                            <button class="bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full transition duration-300">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" 
+                             alt="Sarah J." 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The Glow Serum transformed my skin! I've never received so many compliments on my complexion."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                             alt="Maria K." 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Maria K.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The Hydrating Cream is perfect for my dry skin. It absorbs quickly and leaves my face feeling plump all day."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+                             alt="Lisa M." 
+                             class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Lisa M.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"I love how the Cleansing Oil removes even waterproof mascara without irritating my eyes. Will repurchase forever!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-gradient-to-r from-pink-500 to-yellow-400">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Join Our Beauty Community</h2>
+            <p class="text-white mb-8 max-w-2xl mx-auto">Subscribe to receive exclusive offers, beauty tips, and new product announcements</p>
+            <form class="max-w-md mx-auto flex">
+                <input type="email" 
+                       placeholder="Your email address" 
+                       class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none">
+                <button type="submit" 
+                        class="bg-gray-900 text-white px-6 py-3 rounded-r-lg hover:bg-gray-800 transition duration-300">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold gradient-text mb-4">MayLuv</h3>
+                    <p class="text-gray-400">Premium beauty essentials crafted with care and passion.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">All Products</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Skincare</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Makeup</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Haircare</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Sustainability</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Connect</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    <p class="text-gray-400">support@mayluv.com</p>
+                    <p class="text-gray-400">+1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 MayLuv. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" class="h-8">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="Mastercard" class="h-8">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="Amex" class="h-8">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196565.png" alt="PayPal" class="h-8">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality will be added here
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
